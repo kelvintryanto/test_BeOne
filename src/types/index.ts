@@ -1,12 +1,12 @@
+import { ObjectId } from "mongodb";
+
 // Common Types
 export interface Customer {
-  id: string;
+  _id: ObjectId;
   name: string;
   email: string;
-  phone: string;
-  address: string;
-  membershipId?: string;
-  point: number;
+  password: string;
+  points?: number;
   createdAt: string;
   updatedAt: string;
 }
@@ -33,3 +33,13 @@ export interface ApiResponse<T> {
   data?: T;
   error?: string;
 }
+
+export type CreateCustomer = Omit<
+  Customer,
+  "_id" | "createdAt" | "updatedAt" | "points"
+>;
+
+export type LoginCustomer = Omit<
+  Customer,
+  "_id" | "name" | "createdAt" | "updatedAt" | "points"
+>;

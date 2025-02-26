@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { UserPlus, ShoppingCart } from "lucide-react";
+import { UserPlus, ShoppingCart, Building } from "lucide-react";
 
 export default function Home() {
   return (
@@ -28,9 +28,12 @@ export default function Home() {
                 Register new customers and sync across CRM, ERP, and POS systems
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <Link href="/register">
-                <Button className="w-full">Register New Customer</Button>
+            <CardContent className="flex gap-4">
+              <Link href="/crm/login" className="flex-1">
+                <Button className="w-full">Login</Button>
+              </Link>
+              <Link href="/crm/register" className="flex-1">
+                <Button className="w-full">Register</Button>
               </Link>
             </CardContent>
           </Card>
@@ -48,6 +51,23 @@ export default function Home() {
             <CardContent>
               <Link href="/pos">
                 <Button className="w-full">Open POS System</Button>
+              </Link>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Building className="h-6 w-6" />
+                ERP
+              </CardTitle>
+              <CardDescription>
+                Process sales transactions and sync with POS and CRM
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Link href="/erp">
+                <Button className="w-full">Open ERP</Button>
               </Link>
             </CardContent>
           </Card>
